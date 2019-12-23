@@ -37,7 +37,32 @@
 
 </head>
 <body>
-	
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "sew1550";
+$dbname = "mainpage";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$conn->query("set session character_set_connection=utf8;");
+$conn->query("set session character_set_results=utf8;");
+$conn->query("set session character_set_client=utf8;");
+$result = $conn->query("select * from home");
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "<h2>" . $row['name'] . "</h2>";
+        echo "<a href=" . $row['href'] . ">";
+        echo "<img src=" . $row['imgurl'] . "><br>";
+        echo $row['headline'];
+        echo "</a>";
+    }
+}
+$conn->close();
+?>	
 	<div id="wrapper">
         <header class="header site-header">
 			<div class="container">
@@ -50,7 +75,7 @@
 				                <span class="icon-bar"></span>
 				                <span class="icon-bar"></span>
 				            </button>
-							<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Linda" width=200></a>
+							<a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="Linda" width=200></a>
 				        </div>
 				        <div id="navbar" class="navbar-collapse collapse">
 				        </div><!--/.nav-collapse -->
