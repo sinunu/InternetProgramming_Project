@@ -6,8 +6,10 @@
 <body>
     <h1>All News</h1>
     <form method="get" action="search.php">
-        Search : <input name="input">
-        <input type="submit">
+        Search : <input name="input"> <input type="submit"><br>
+        관련도순<input type="radio" name="type" value="association"> 최신순<input type="radio" name="type" value="latest"> / 
+        기간: 1주<input type="radio" name="period" value="week"> 1달<input type="radio" name="period" value="month"> 1년<input type="radio" name="period" value="year">전체<input type="radio" name="period" value="all"><br>
+        (기본 검색 설정은 관련도순, 1주 기간입니다.)
     </form>
 <?php
 $servername = "localhost";
