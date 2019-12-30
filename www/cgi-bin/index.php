@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- Site Meta -->
-    <title>SEOTime HTML5 Business Template</title>
+    <title>ALL NEWS</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -38,6 +38,7 @@
 </head>
 <body>
 <?php
+/*
 $servername = "localhost";
 $username = "root";
 $password = "sew1550";
@@ -61,7 +62,7 @@ if ($result->num_rows > 0) {
         echo "</a>";
     }
 }
-$conn->close();
+$conn->close();*/
 ?>	
 	<div id="wrapper">
         <header class="header site-header">
@@ -88,9 +89,9 @@ $conn->close();
 			<div class="container">
 				<div class="row">	
 					<div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
-						<h2>검색하려는 단어를 입력하세요!</h2>
+						<h2 style="color:yellow;">검색할 단어를 입력하세요</h2>
 						<p class="lead"></p>
-						<form class="calculateform">
+						<form class="calculateform" method="get" action='search.php'>
 						    <div class="item-box">
 						        <div class="item-top form-inline">
 						            <div class="form-group">
@@ -98,11 +99,12 @@ $conn->close();
 						                    <span class="input-addon">
 												<i class="fa fa-link"></i>
 											</span>
-						                    <input type="url" class="form-control" id="urladres" name="url" placeholder="Keyword">
+						                    <input type="text" name = "input"class="form-control"  name="url" placeholder="Keyword">
 						                </div>
 						            </div>
 						            <input type="submit" name="send" value="Search" class="btn btn-default" />
-						        </div>
+                                </div>
+                                <span style="font-weight:bold; color:black; font-size: large;">관련도순<input type="radio" name="type" value="association"> 최신순<input type="radio" name="type" value="latest"> / 기간: 1주<input type="radio" name="period" value="week"> 1달<input type="radio" name="period" value="month"> 1년<input type="radio" name="period" value="year">전체<input type="radio" name="period" value="all"></span>
 						    </div>
 						</form>
 					</div><!-- end col -->

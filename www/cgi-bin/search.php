@@ -16,7 +16,7 @@ $type = $_GET['type'];
 $period = $_GET['period'];
 
 //chosun
-echo "<h2>조선일보</h2>";
+//echo "<h2>조선일보</h2>";
 $tempperiod='1w';
 if ($period == 'month')
     $tempperiod = '1m';
@@ -28,9 +28,13 @@ $temptype = '0';
 if ($type == "latest")
     $temptype = '1';
 $tempquery = "http://nsearch.chosun.com/search/total.search?query=%".$input."&siteid=&category=&sort=".$temptype."&writer=&field=&date_period=".$tempperiod."&date_start=&date_end=&emd_word=&expt_word=&opt_chk=";
-$html = file_get_html($tempquery);
-echo $html->find('.search_news')[0];
-//donga (not solved)
+try {
+    //$html = file_get_html($tempquery);
+    //echo $html->find('.search_news')[0];
+} catch (Exception $e) {
+    echo "조선일보 서버가 응답하지 않습니다.<br>";
+}    
+//donga
 echo "<h2>동아일보</h2>";
 $tempperiod = 'search_date=4\&';
 if ($period == 'month')
